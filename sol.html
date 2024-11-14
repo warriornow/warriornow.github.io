@@ -3,274 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cash from Open AI ChatGPT</title>
+    <title>Simple AI Money Maker - Unlock Your Path to Financial Freedom</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
-            color: #333;
-            background-color: #f2f4f8;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
         .container {
-            max-width: 800px;
+            width: 80%;
             margin: 0 auto;
             padding: 20px;
         }
-
-        /* Header Section */
-        .header {
-            background-color: #fff3cd;
-            padding: 50px 20px;
+        header {
             text-align: center;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 50px 0;
+            background-color: #00aaff;
+            color: white;
         }
-        .header h1 {
-            font-size: 2.5em;
-            color: #d9534f;
+        header h1 {
+            font-size: 36px;
             margin: 0;
         }
-        .header p {
-            font-size: 1.2em;
-            color: #333;
+        header p {
+            font-size: 18px;
             margin-top: 10px;
         }
-        .highlight {
-            color: #ff6347;
-            font-weight: bold;
-        }
-
-        /* Problem Section */
-        .problem {
-            background-color: #ffffff;
-            padding: 40px 20px;
-            border-radius: 8px;
-            margin: 30px 0;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .problem h2 {
-            color: #0275d8;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-        .problem p {
-            font-size: 1.1em;
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 40px;
             color: #333;
         }
-
-        /* Solution Section */
-        .solution {
-            background-color: #ffffff;
-            padding: 40px 20px;
-            border-radius: 8px;
-            margin: 30px 0;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        .button {
+            background-color: #ff4500;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 20px;
         }
-        .solution h2 {
-            color: #0275d8;
-            font-size: 1.8em;
-            margin-bottom: 20px;
+        .button:hover {
+            background-color: #ff6000;
         }
-        .solution ul {
-            list-style: none;
-            padding: 0;
-            font-size: 1.1em;
-            color: #333;
-            text-align: left;
-        }
-        .solution li {
-            margin: 15px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-        .solution li:before {
-            content: "✔";
-            position: absolute;
-            left: 0;
-            color: #0275d8;
-            font-size: 1.3em;
-        }
-
-        /* Testimonial Section */
         .testimonial {
-            background-color: #f8f9fa;
-            padding: 30px 20px;
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
             border-radius: 8px;
-            margin: 30px 0;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            font-size: 1.1em;
-            color: #333;
-            text-align: left;
-        }
-        .testimonial h3 {
-            color: #0275d8;
-            font-size: 1.6em;
-            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .testimonial p {
-            margin-top: 0;
-            color: #555;
+            font-style: italic;
         }
-
-        /* Call to Action Button */
-        .cta-button {
-            display: block;
-            width: 80%;
-            max-width: 300px;
-            margin: 20px auto;
-            padding: 15px 20px;
-            background-color: #d9534f;
+        footer {
+            background-color: #333;
             color: white;
-            font-size: 1.2em;
             text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #ff4500;
             text-decoration: none;
-            border-radius: 5px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s;
-        }
-        .cta-button:hover {
-            background-color: #c9302c;
-        }
-
-        /* Urgency Section */
-        .urgency {
-            background-color: #ffdddd;
-            padding: 30px 20px;
-            border-radius: 8px;
-            margin: 40px 0;
-            text-align: center;
-        }
-        .urgency h2 {
-            color: #d9534f;
-            font-size: 2em;
-        }
-        .urgency p {
-            font-size: 1.2em;
-            color: #c9302c;
-        }
-
-        /* Bonuses Section */
-        .bonuses {
-            background-color: #ffffff;
-            padding: 30px 20px;
-            border-radius: 8px;
-            margin: 30px 0;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .bonuses h2 {
-            color: #0275d8;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-        .bonuses ul {
-            list-style: none;
-            padding: 0;
-            font-size: 1.1em;
-            color: #333;
-            text-align: left;
-        }
-        .bonuses li {
-            margin: 15px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-        .bonuses li:before {
-            content: "🎁";
-            position: absolute;
-            left: 0;
-            color: #0275d8;
-            font-size: 1.3em;
-        }
-
-        /* Footer */
-        .footer {
-            font-size: 0.9em;
-            color: #777;
-            text-align: center;
-            padding-top: 30px;
-            padding-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
+<!-- Header -->
+<header>
+    <h1>Simple AI Money Maker</h1>
+    <p>Unlock Your Path to Financial Freedom with Our Proven AI System!</p>
+</header>
+
+<!-- Main Content -->
 <div class="container">
+    <h2 class="section-title">Welcome to Simple AI Money Maker - The Passive Income Automation System That Changes Lives!</h2>
+    <p>Are you ready to create the financial freedom you've always dreamed of, without being a tech expert or working hours on end? Simple AI Money Maker provides you with an easy-to-use automated solution that allows you to make money while you sleep!</p>
 
-    <!-- Header Section -->
-    <div class="header">
-        <h1>Unlock Cash from OpenAI ChatGPT</h1>
-        <p>Discover how to create a steady income stream using <span class="highlight">OpenAI's ChatGPT</span> today!</p>
-    </div>
+    <p><strong>With Simple AI Money Maker, you will:</strong></p>
+    <ul>
+        <li>Generate passive income automatically.</li>
+        <li>Increase your income without working harder.</li>
+        <li>Start an AI-powered business without technical experience.</li>
+        <li>Use a system that has already helped over 1,500 people succeed.</li>
+    </ul>
 
-    <!-- Problem Section -->
-    <div class="problem">
-        <h2>Are You Struggling with Making Money Online?</h2>
-        <p>If you're tired of wasting time on methods that don't work or feel stuck in the same old routine, you're not alone. Many people face the same challenges – wanting to earn money online but not knowing where to start. Worse, the “get-rich-quick” schemes only leave you feeling frustrated and broke.</p>
-        <p>What if there was a better way? A simple, proven system to start earning money with no experience required?</p>
-    </div>
+    <h2 class="section-title">What is Simple AI Money Maker?</h2>
+    <p>Simple AI Money Maker is an AI-powered system that works 24/7 to help you generate money automatically. No special experience or skills are required to get started. Simply follow the easy steps we've laid out and let our system do the rest!</p>
 
-    <!-- Solution Section -->
-    <div class="solution">
-        <h2>Introducing Cash from OpenAI ChatGPT</h2>
-        <p>This system shows you exactly how to harness the power of ChatGPT to create an income stream that works for you 24/7. No more wasting time or money on complicated methods. With ChatGPT, you can:</p>
-        <ul>
-            <li><strong>Generate Passive Income:</strong> Use AI to automate tasks that will make you money while you sleep.</li>
-            <li><strong>Monetize Your Knowledge:</strong> Learn how to use ChatGPT to create valuable content for businesses or clients.</li>
-            <li><strong>Work From Anywhere:</strong> With this system, you can work remotely, giving you the freedom to live life on your own terms.</li>
-            <li><strong>Quick Results:</strong> Start seeing results within days of applying the simple techniques outlined in our guide.</li>
-            <li><strong>Proven Methods:</strong> This system isn’t a theory – it’s a real, tested method used by many to generate consistent income online.</li>
-        </ul>
-    </div>
+    <p>Join over 1,500 users who have already reaped the benefits, from passive income to more free time. This is not a get-rich-quick scheme, but a smart way to optimize your time and effort.</p>
 
-    <!-- Urgency Section -->
-    <div class="urgency">
-        <h2>Hurry! Limited Time Offer!</h2>
-        <p>We’re offering this system at a **special price** today only. Don’t miss out – after the timer runs out, the price goes up!</p>
-    </div>
+    <h2 class="section-title">Why Simple AI Money Maker is Your Best Choice</h2>
+    <ul>
+        <li><strong>Full Automation - No Hard Work!</strong><br>Our system works for you. All you need to do is follow a few simple steps, and the AI will take care of the rest. No need to worry about writing marketing emails, creating products, or managing sales.</li>
+        <li><strong>Proven Results with Numbers!</strong><br>Over 1,500 people have successfully earned passive income using Simple AI Money Maker, many of whom had no previous experience.</li>
+        <li><strong>Extremely Easy-to-Use System</strong><br>Even if you're new to making money online, Simple AI Money Maker is designed for you. With a user-friendly interface, you can get started with just a few clicks!</li>
+        <li><strong>Accessible Anywhere, Anytime</strong><br>No more being stuck at a desk for hours. With Simple AI Money Maker, you can work from home, a coffee shop, or even while on vacation. Simply access the system and let the AI handle the rest.</li>
+    </ul>
 
-    <!-- Call to Action Button -->
-    <a href="#order" class="cta-button">Get Instant Access Now!</a>
-
-    <!-- Bonuses Section -->
-    <div class="bonuses">
-        <h2>Special Bonuses When You Act Today</h2>
-        <ul>
-            <li><strong>Bonus #1:</strong> Free step-by-step guide on how to monetize your first AI project (Valued at $49).</li>
-            <li><strong>Bonus #2:</strong> Access to a private mastermind group of like-minded individuals (Valued at $99).</li>
-            <li><strong>Bonus #3:</strong> Exclusive ChatGPT script templates that help you get started instantly (Valued at $79).</li>
-        </ul>
-    </div>
-
-    <!-- Testimonial Section -->
+    <h2 class="section-title">User Testimonials</h2>
     <div class="testimonial">
-        <h3>What Our Users Are Saying:</h3>
-        <p>"I never imagined making money with AI could be this easy! With ChatGPT, I started generating $200 a month within the first week, and it’s only growing!" – <strong>Jessica L.</strong></p>
-        <p>"I’ve tried so many online money-making systems, but this is the first one that actually delivered. I’m now making a full-time income from home using ChatGPT." – <strong>Tom B.</strong></p>
+        <p>"I never believed there could be an automated system that really works, but Simple AI Money Maker proved me wrong. In my first 3 months, I made an extra $3,000 per month without any significant additional work!"</p>
+        <p>- John D., California</p>
     </div>
 
-    <!-- Testimonial Section 2 -->
     <div class="testimonial">
-        <p>"I was skeptical at first, but Cash from OpenAI ChatGPT showed me how to use the AI to its full potential. Now I’m earning money on autopilot without any extra effort!" – <strong>Sarah J.</strong></p>
+        <p>"As a stay-at-home mom with two young kids, I needed a flexible way to increase my income. I found Simple AI Money Maker and within 6 weeks, my income doubled. I'm so grateful!"</p>
+        <p>- Emily S., Texas</p>
     </div>
 
-    <!-- Call to Action Button -->
-    <a href="#order" class="cta-button">Join Now and Start Earning!</a>
-
-    <!-- Final Message Section -->
-    <div class="solution">
-        <h2>Your Opportunity to Make Money with ChatGPT Starts Now</h2>
-        <p>Imagine a life where you earn money on your terms – without the hassle of working a 9-5 job. Cash from OpenAI ChatGPT gives you the power to create financial freedom while working smarter, not harder.</p>
-        <p>Don’t wait any longer. Start using ChatGPT today to create your own income stream and take control of your financial future.</p>
+    <div class="testimonial">
+        <p>"Simple AI Money Maker changed my life! At first, I was skeptical, but after trying it for 30 days, I saw a real increase in my earnings. This is the way I’ve been looking for to make money online!"</p>
+        <p>- Mark W., Florida</p>
     </div>
 
-    <!-- Footer -->
-    <div id="order" class="footer">
-        <p>&copy; 2024 Cash from OpenAI ChatGPT. All rights reserved.</p>
-    </div>
+    <h2 class="section-title">How Simple AI Money Maker Works</h2>
+    <p>Simple AI Money Maker combines advanced AI technology with proven business methods to generate passive income. The process is incredibly simple:</p>
+    <ol>
+        <li><strong>Step 1:</strong> Sign up and get access to your user dashboard.</li>
+        <li><strong>Step 2:</strong> Follow the easy guide to connect your payment accounts.</li>
+        <li><strong>Step 3:</strong> Let the AI do the work! The system will start managing your marketing, sales, and leads automatically.</li>
+    </ol>
+    <p>No technical experience required. Simply follow the instructions, and our AI will handle the rest.</p>
 
+    <h2 class="section-title">Key Features of Simple AI Money Maker</h2>
+    <ul>
+        <li><strong>Automated Lead Generation:</strong> The AI automatically generates leads and attracts potential customers.</li>
+        <li><strong>Automated Sales Funnel:</strong> Your sales process is fully automated, including email marketing and lead management.</li>
+        <li><strong>Passive Income Management:</strong> Create sustainable passive income without having to work hard every day.</li>
+        <li><strong>Accessible:</strong> Access the dashboard from any device—PC, tablet, or smartphone.</li>
+    </ul>
+
+    <h2 class="section-title">Join Now & Get Special Bonuses!</h2>
+    <p>For a limited time, we're offering special access at a discounted price of only $5.60 (regularly $97!). Join now and receive:</p>
+    <ul>
+        <li>Lifetime full access to Simple AI Money Maker.</li>
+        <li>A free eBook on how to optimize earnings with automated systems.</li>
+        <li>Exclusive 3-Day Training on how to increase sales using AI.</li>
+    </ul>
+
+    <p><strong>But wait... there's more!</strong></p>
+    <p>If you sign up within the next 30 minutes, we'll give you VIP access, including a one-on-one consultation with an AI expert to help you tailor the system to your needs.</p>
+
+    <h2 class="section-title">60-Day Money-Back Guarantee</h2>
+    <p>We are so confident in the quality of our product that if, within the first 60 days, you feel that Simple AI Money Maker doesn't deliver as promised, we'll give you a 100% refund—no questions asked! We don't want you to feel tied down if you're not satisfied.</p>
+
+    <h2 class="section-title">FAQ (Frequently Asked Questions)</h2>
+    <p><strong>Q1:</strong> Do I need any technical experience to use Simple AI Money Maker?</p>
+    <p><strong>A1:</strong> No! We've designed the system to be very user-friendly. You don't need any technical experience.</p>
+
+    <p><strong>Q2:</strong> How much time do I need to get started?</p>
+    <p><strong>A2:</strong> You can get started in just 10 minutes! All steps are automated, and we provide step-by-step tutorials.</p>
+
+    <p><strong>Q3:</strong> Does this system really work?</p>
+    <p><strong>A3:</strong> Yes! With over 1,500 successful users, we have real proof that Simple AI Money Maker provides profitable results.</p>
+
+    <h2 class="section-title">Why You Shouldn't Miss This Opportunity!</h2>
+    <ul>
+        <li><strong>Limited-Time Discount:</strong> Get lifetime access for just $5.60 (regular price $97)!</li>
+        <li><strong>Passive Income:</strong> Start earning money without working harder.</li>
+        <li><strong>60-Day Guarantee:</strong> Not satisfied? Get 100% of your money back!</li>
+    </ul>
+
+    <button class="button">Start Now for Only $5.60</button>
 </div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Simple AI Money Maker. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+</footer>
 
 </body>
 </html>

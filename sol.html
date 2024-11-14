@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solana DEX Prototype</title>
     <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.32.0/lib/index.iife.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@solana/wallet-adapter-react@0.15.0/lib/index.iife.min.js"></script>
     <style>
-        /* Styling dasar */
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -86,11 +86,8 @@
 
 <script>
     let walletAddress = null;
-    const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('devnet'));
 
-    // Replace this with your program ID deployed on Solana
-    const SWAP_PROGRAM_ID = new solanaWeb3.PublicKey('YOUR_SWAP_PROGRAM_ID'); 
-
+    // Connect Wallet
     async function connectWallet() {
         if (window.solana && window.solana.isPhantom) {
             try {
@@ -107,6 +104,7 @@
 
     document.getElementById("connectWallet").addEventListener("click", connectWallet);
 
+    // Swap Tokens (Integrasi dengan Smart Contract)
     async function swapTokens() {
         if (!walletAddress) {
             document.getElementById("result").innerText = "Please connect your wallet first.";
@@ -114,7 +112,7 @@
         }
 
         const fromToken = document.getElementById("fromToken").value;
-        const amount = parseFloat(document.getElementById("amount").value);
+        const amount = document.getElementById("amount").value;
         const toToken = document.getElementById("toToken").value;
 
         if (fromToken === toToken) {
@@ -127,27 +125,39 @@
             return;
         }
 
-        try {
-            // Create a transaction
-            const transaction = new solanaWeb3.Transaction();
+        // Set up connection to Solana blockchain (Devnet for testing)
+        const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('devnet'), 'confirmed');
 
-            // Assume the smart contract requires a simple instruction to swap
-            const swapInstruction = new solanaWeb3.TransactionInstruction({
-                programId: SWAP_PROGRAM_ID,
-                keys: [
-                    { pubkey: new solanaWeb3.PublicKey(walletAddress), isSigner: true, isWritable: true },
-                    // Add any other keys the program needs, such as fromToken account, toToken account, etc.
-                ],
-                data: Buffer.from(Uint8Array.of(0, ...new BN(amount).toArray("le", 8))) // Pass amount in correct format
+        // Set up the transaction
+        const transaction = new solanaWeb3.Transaction();
+        const fromPubKey = new solanaWeb3.PublicKey(walletAddress);
+
+        // Placeholder logic for creating the swap instruction - replace with real AMM logic
+        const swapInstruction = new solanaWeb3.TransactionInstruction({
+            keys: [
+                { pubkey: fromPubKey, isSigner: true, isWritable: true },
+                // Add more keys for the swap contract interaction here
+            ],
+            programId: new solanaWeb3.PublicKey("YOUR_AMM_PROGRAM_ID"), // Replace with the actual AMM contract ID
+            data: Buffer.from([/* Instruction data */]),  // Data based on your contract's instruction format
+        });
+
+        // Add the swap instruction to the transaction
+        transaction.add(swapInstruction);
+
+        // Send the transaction
+        try {
+            const recentBlockhash = await connection.getRecentBlockhash();
+            transaction.recentBlockhash = recentBlockhash.blockhash;
+            transaction.feePayer = fromPubKey;
+
+            const signedTransaction = await window.solana.request({
+                method: 'signTransaction',
+                params: [transaction]
             });
 
-            transaction.add(swapInstruction);
-
-            // Send the transaction with the Phantom wallet as the signer
-            const { signature } = await window.solana.signAndSendTransaction(transaction);
-            await connection.confirmTransaction(signature);
-
-            document.getElementById("result").innerText = `Swapped ${amount} ${fromToken} to ${toToken} successfully!`;
+            const transactionId = await connection.sendRawTransaction(signedTransaction.serialize());
+            document.getElementById("result").innerText = `Transaction Successful: ${transactionId}`;
         } catch (error) {
             console.error("Transaction failed:", error);
             document.getElementById("result").innerText = "Transaction failed. Please try again.";
